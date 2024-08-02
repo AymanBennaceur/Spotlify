@@ -1,7 +1,7 @@
 # Spotify AI Music Suggestion App
 
 ## Overview
-The Spotify AI Music Suggestion App leverages OpenAI's GPT-4o-mini model and Spotify's API to provide personalized music recommendations based on user prompts. The app can suggest songs based on favorite shows, specific artists, or moods using Lang Chain and AI-driven prompt classification as well as Spotify's recommendation engine.
+The Spotify AI Music Suggestion App leverages OpenAI's GPT-4o-mini model and Spotify's API to provide personalized music recommendations based on user prompts. The app can suggest songs based on favorite shows, specific artists, or mood. It uses LangChain and AI-driven prompt classification as well as Spotify's recommendation engine.
 
 ## Architecture
 
