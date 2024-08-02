@@ -12,6 +12,8 @@ The Spotify AI Music Suggestion App leverages OpenAI's GPT-4o-mini model and Spo
 - **Next.js API Routes**: Serve as the backend to handle API requests, process user prompts, and interact with the Spotify API.
 - **OpenAI API**: Used to classify user prompts and find the closest matching genre based on mood.
 - **Spotify API**: Interacts with Spotify's endpoints to fetch top tracks, artist-based tracks, and mood-based tracks.
+- **LangChain**: Manages chains of calls to the OpenAI API for processing and classifying user prompts, and determines the closest genre based on the user's mood.
+
 
 ## Flow Diagram
 1. **User Prompt**: The user enters a prompt in the chat interface.
@@ -31,14 +33,6 @@ The Spotify AI Music Suggestion App leverages OpenAI's GPT-4o-mini model and Spo
 - **`pages/api/handle-prompt.ts`**: API route to handle user prompts, classify them using OpenAI, and fetch appropriate tracks from Spotify.
 - **`lib/chains.ts`**: Contains functions that are called for classifying user prompts and finding the closest genre using OpenAI.
 - **`lib/spotify.ts`**: Contains functions for interacting with Spotify's API to fetch top tracks, artist-based tracks, and mood-based tracks.
-
-## Using LangChain with OpenAI
-
-LangChain is used to create and manage chains of calls to the OpenAI API to process and classify user prompts. It helps in structuring the workflow of how prompts are handled and how the appropriate Spotify API calls are made based on the classification. Here's a brief overview of how LangChain and OpenAI are integrated:
-
-1. **Prompt Classification**: LangChain is used to send user prompts to OpenAI's GPT-4o-mini model to classify them into predefined categories (e.g., favorite show, artist-based, mood-based).
-2. **Genre Matching**: For mood-based prompts, LangChain helps in using the LLM to find the closest matching genre from the list of available genres fetched from Spotify.
-3. **Chain Management**: LangChain manages the workflow of how different types of prompts are processed and ensures that the appropriate API calls are made based on the classification.
 
 ## How to Run the Project
 1. **Clone the Repository**: Clone the project repository to your local machine.
