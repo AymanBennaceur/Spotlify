@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getTopTracks } from '../../lib/spotify';
 
+// This handles the Get top tracks usecase
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     try {
@@ -10,15 +11,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         throw new Error('Access token is missing');
       }
 
-      // Get top tracks from Spotify using the access token
       const topTracksData = await getTopTracks(accessToken);
       if (!topTracksData.items) {
         throw new Error('Invalid response from Spotify API');
       }
 
-      const suggestions = topTracksData.items.map((item: any) => `${item.name} by ${item.artists.map((artist: any) => artist.name).join(', ')}`);
-
-      res.status(200).json({ suggestions });
+      res.status(200).json(topTracksData);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Failed to fetch top tracks from Spotify' });
